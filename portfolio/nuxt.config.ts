@@ -6,6 +6,8 @@ require('dotenv').config({ path: fileName })
 
 const config: Configuration = {
   srcDir: 'src/',
+  buildDir: '../dist',
+
   mode: 'spa',
   
   head: {

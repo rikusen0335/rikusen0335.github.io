@@ -8,7 +8,8 @@
     "dev": "nuxt-ts",
     "build": "nuxt-ts build",
     "generate": "nuxt-ts generate",
-    "start": "nuxt-ts start"
+    "start": "nuxt-ts start",
+    "deploy": "push-dir --dir=dist --branch=master --cleanup"
   },
   "dependencies": {
     "@nuxt/types": "^0.7.0",
@@ -18,7 +19,8 @@
     "nuxt": "^2.0.0",
     "nuxt-i18n": "^6.7.2",
     "nuxt-property-decorator": "^2.5.1",
-    "nuxt-webfontloader": "^1.1.0"
+    "nuxt-webfontloader": "^1.1.0",
+    "push-dir": "^0.4.1"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.6.0",
