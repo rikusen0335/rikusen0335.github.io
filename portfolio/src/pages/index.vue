@@ -1,72 +1,33 @@
 <template>
   <div class="w-full">
-    <div>
-      <div>
-        <p class="text-base font-thin text-center">Project</p>
-        <p class="text-2xl font-bold text-center mb-6">Team Recruit</p>
-        <hr class="my-8">
-        <viewer
-          class="grid grid-cols-2 gap-2 lg:gap-16"
-          :images="teamRecruitImages"
-          :options="options"
-        >
-          <img
-            v-for="image in teamRecruitImages"
-            :key="image"
-            class="col-span-2 lg:col-span-1 mb-8"
-            :src="`/image/${image}`"
-          >
-        </viewer>
-      </div>
-      <div class="mt-32">
-        <p class="text-base font-thin text-center">Hobby</p>
-        <p class="text-2xl font-bold text-center mb-6">
-          でぶみあろぐ <span class="text-lg font-normal">(Blog)</span>
-        </p>
-        <hr class="my-8">
-        <viewer
-          class="grid grid-cols-2 gap-2 lg:gap-16"
-          :images="devmialogImages"
-          :options="options"
-        >
-          <img
-            v-for="image in devmialogImages"
-            :key="image"
-            class="col-span-1 mb-8"
-            :src="`/image/${image}`"
-          >
-        </viewer>
-      </div>
-    </div>
-    <div class="mt-32">
-        <p class="text-base font-thin text-center">Project</p>
-        <p class="text-2xl font-bold text-center mb-6">Post Tech</p>
-        <hr class="my-8">
-        <viewer
-          class="grid grid-cols-2 gap-2 lg:gap-16"
-          :images="postTechImages"
-          :options="options"
-        >
-          <img
-            v-for="image in postTechImages"
-            :key="image"
-            class="col-span-1 mb-8"
-            :src="`/image/${image}`"
-          >
-        </viewer>
-      </div>
-    </div>
+    <Section
+      type="Project"
+      title="Team Recruit"
+      :images="teamRecruitImages"
+      :options="viewerOptions"
+    />
+    <Section
+      type="Hobby"
+      title="でぶみあろぐ"
+      :images="devmialogImages"
+      :options="viewerOptions"
+    />
+    <Section
+      type="Project"
+      title="Post Tech"
+      :images="postTechImages"
+      :options="viewerOptions"
+    />
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'nuxt-property-decorator'
-import 'viewerjs/dist/viewer.css'
-import Viewer from "v-viewer/src/component.vue"
+import Section from '~/components/Section.vue'
 
 @Component({
   components: {
-    Viewer
+    Section
   }
 })
 export default class IndexPage extends Vue {
@@ -83,16 +44,16 @@ export default class IndexPage extends Vue {
     'post-tech_1.png', 'post-tech_2.png', 'post-tech_3.png',
   ]
 
-  options = {
+  viewerOptions = {
     navbar: true,
     toolbar: {
       prev: true,
       next: true,
     },
     slideOnTouch: true,
-    movable: false,
+    movable: true,
     scalable: false,
-    zoomable: false,
+    zoomable: true,
     rotatable: false,
   }
 }
