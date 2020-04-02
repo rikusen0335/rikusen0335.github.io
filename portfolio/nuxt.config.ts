@@ -37,7 +37,7 @@ const config: Configuration = {
   webfontloader: {
     google: {
       families: [
-        'Noto+Sans+JP:wght@400;700',
+        'Noto+Sans+JP:wght@100;400;700',
       ]
     }
   },
@@ -50,6 +50,7 @@ const config: Configuration = {
   modules: [
     '@nuxtjs/pwa',
     '@nuxtjs/dotenv',
+    'nuxt-webfontloader',
     ['nuxt-i18n', {
       locales: [
         {
@@ -82,8 +83,7 @@ const config: Configuration = {
   ],
 
   build: {
-    extend (config, ctx) {
-    }
+    extend (config, ctx) {}
   }
 }
 

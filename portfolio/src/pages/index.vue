@@ -1,78 +1,99 @@
 <template>
-  <div class="container">
+  <div class="w-full">
     <div>
-      <logo />
-      <h1 class="title">
-        portfolio
-      </h1>
-      <h2 class="subtitle">
-        my super nice portfolio
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
+      <div>
+        <p class="text-base font-thin text-center">Project</p>
+        <p class="text-2xl font-bold text-center mb-6">Team Recruit</p>
+        <hr class="my-8">
+        <viewer
+          class="grid grid-cols-2 gap-2 lg:gap-16"
+          :images="teamRecruitImages"
+          :options="options"
         >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
+          <img
+            v-for="image in teamRecruitImages"
+            :key="image"
+            class="col-span-2 lg:col-span-1 mb-8"
+            :src="`/image/${image}`"
+          >
+        </viewer>
+      </div>
+      <div class="mt-32">
+        <p class="text-base font-thin text-center">Hobby</p>
+        <p class="text-2xl font-bold text-center mb-6">
+          でぶみあろぐ <span class="text-lg font-normal">(Blog)</span>
+        </p>
+        <hr class="my-8">
+        <viewer
+          class="grid grid-cols-2 gap-2 lg:gap-16"
+          :images="devmialogImages"
+          :options="options"
         >
-          GitHub
-        </a>
+          <img
+            v-for="image in devmialogImages"
+            :key="image"
+            class="col-span-1 mb-8"
+            :src="`/image/${image}`"
+          >
+        </viewer>
+      </div>
+    </div>
+    <div class="mt-32">
+        <p class="text-base font-thin text-center">Project</p>
+        <p class="text-2xl font-bold text-center mb-6">Post Tech</p>
+        <hr class="my-8">
+        <viewer
+          class="grid grid-cols-2 gap-2 lg:gap-16"
+          :images="postTechImages"
+          :options="options"
+        >
+          <img
+            v-for="image in postTechImages"
+            :key="image"
+            class="col-span-1 mb-8"
+            :src="`/image/${image}`"
+          >
+        </viewer>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import Logo from '~/components/Logo.vue'
+import { Vue, Component } from 'nuxt-property-decorator'
+import 'viewerjs/dist/viewer.css'
+import Viewer from "v-viewer/src/component.vue"
 
-export default Vue.extend({
+@Component({
   components: {
-    Logo
+    Viewer
   }
 })
+export default class IndexPage extends Vue {
+  teamRecruitImages: string[] = [
+    'team-recruit_1.png', 'team-recruit_2.png', 'team-recruit_3.png',
+    'team-recruit_4.png', 'team-recruit_5.png',
+  ]
+
+  devmialogImages: string[] = [
+    'devmialog_1.png',
+  ]
+
+  postTechImages: string[] = [
+    'post-tech_1.png', 'post-tech_2.png', 'post-tech_3.png',
+  ]
+
+  options = {
+    navbar: true,
+    toolbar: {
+      prev: true,
+      next: true,
+    },
+    slideOnTouch: true,
+    movable: false,
+    scalable: false,
+    zoomable: false,
+    rotatable: false,
+  }
+}
 </script>
-
-<style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-  @apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>

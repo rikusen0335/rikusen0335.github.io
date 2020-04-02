@@ -20,7 +20,8 @@
     "nuxt-i18n": "^6.7.2",
     "nuxt-property-decorator": "^2.5.1",
     "nuxt-webfontloader": "^1.1.0",
-    "push-dir": "^0.4.1"
+    "push-dir": "^0.4.1",
+    "v-viewer": "^1.5.1"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.6.0",
