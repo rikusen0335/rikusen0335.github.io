@@ -3,18 +3,20 @@
     <p class="text-base font-thin text-center">{{ type }}</p>
     <p class="text-2xl font-bold text-center mb-6">{{ title }}</p>
     <hr class="my-8">
-    <viewer
-      class="grid grid-cols-2 gap-2 lg:gap-16"
-      :images="images"
-      :options="options"
-    >
-      <img
-        v-for="image in images"
-        :key="image"
-        class="col-span-2 lg:col-span-1 mb-8"
-        :src="`/image/${image}`"
+    <client-only>
+      <viewer
+        class="grid grid-cols-2 gap-2 lg:gap-16"
+        :images="images"
+        :options="options"
       >
-    </viewer>
+        <img
+          v-for="image in images"
+          :key="image"
+          class="col-span-2 lg:col-span-1 mb-8"
+          :src="`/image/${image}`"
+        >
+      </viewer>
+    </client-only>
   </div>
 </template>
 
@@ -29,3 +31,6 @@ export default class Section extends Vue {
   @Prop() options!: object
 }
 </script>
+
+<style scoped>
+</style>
