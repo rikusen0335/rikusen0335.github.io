@@ -12,7 +12,7 @@
         <img
           v-for="image in images"
           :key="image"
-          class="col-span-2 lg:col-span-1 cursor-pointer mb-8"
+          class="col-span-2 lg:col-span-1 shadow-lg hover:shadow-xl cursor-pointer mb-8 duration-150"
           :src="`/image/${image}`"
         >
       </viewer>
