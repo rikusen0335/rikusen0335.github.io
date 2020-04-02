@@ -32,6 +32,7 @@ const config: Configuration = {
   ],
   
   plugins: [
+    '~/plugins/v-viewer.js'
   ],
 
   webfontloader: {

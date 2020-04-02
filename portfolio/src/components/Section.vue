@@ -20,14 +20,8 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'nuxt-property-decorator'
-import 'viewerjs/dist/viewer.css'
-import Viewer from "v-viewer/src/component.vue"
 
-@Component({
-  components: {
-    Viewer
-  }
-})
+@Component
 export default class Section extends Vue {
   @Prop() type!: string
   @Prop() title!: string
